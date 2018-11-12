@@ -1,0 +1,26 @@
+<mat-toolbar color="primary" class="mat-elevation-z2" style="justify-content: space-evenly;">
+        <button mat-icon-button #btnSideNavToggle (click)="sideNav.toggle()" fxHide.gt-sm>
+                <mat-icon>menu</mat-icon>
+              </button>
+   
+        <a routerLink="/home" routerLinkActive="active">
+        <i class="home icon"></i> HOME</a>
+        
+        <div style="width: 45%;height: 100%;">
+            <div class="header-search" style="width: 100%; padding: 14px;height: 100%;">
+                <input type="text" name="searchField" placeholder="Search" style="width: 100%; height: 50%;">
+            </div>
+        </div>
+  
+   
+    <div>
+      <div class="ui primary dropdown button" suiDropdown>
+        <div class="avatar">Cart</div>
+        
+      </div>
+    </div>
+  
+</mat-toolbar>
+ 
+     
+      

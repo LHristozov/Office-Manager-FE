@@ -1,0 +1,26 @@
+<mat-sidenav-container class="example-container">
+    <mat-sidenav mode="side" opened>
+
+        <mat-nav-list>
+            <mat-accordion>
+              <a mat-list-item>
+                <mat-icon mat-list-icon>home</mat-icon><span mat-line>Home</span></a>
+              <a mat-list-item>
+                <mat-icon mat-list-icon>settings</mat-icon><span mat-line>Settings</span></a>
+              <a mat-list-item>
+                <mat-icon mat-list-icon>exit_to_app </mat-icon><span mat-line>Sign out</span></a>
+            </mat-accordion>
+          </mat-nav-list>
+      
+      
+    </mat-sidenav>
+    
+    <!-- This is the Main Content of the page  -->
+    <mat-sidenav-content>
+
+      <app-content>
+          <router-outlet></router-outlet>
+      </app-content>
+        
+    </mat-sidenav-content>
+</mat-sidenav-container>
