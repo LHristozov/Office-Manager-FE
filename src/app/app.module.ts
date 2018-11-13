@@ -50,9 +50,11 @@ import {
   MatToolbarModule,
   MatTooltipModule,
 } from '@angular/material';
+import { HttpModule } from '@angular/http';
+import { ItemService } from './shared/items/item.service';
 
 /**
- * NgModule that includes all Material modules that are required to serve 
+ * NgModule that includes all Material modules that are required to serve
  * the Plunker.
  */
 @NgModule({
@@ -116,9 +118,10 @@ export class MaterialModule {}
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [ItemService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
