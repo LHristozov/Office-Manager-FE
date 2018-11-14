@@ -8,19 +8,19 @@
       </h2>
       <form name="form" class="ui large form" (ngSubmit)="login()">
         <div class="ui stacked segment">
-          <div class="field">
+          <div class="fieldUser">
             <div class="ui left icon input">
               <i class="user icon"></i>
               <input type="text" name="username" [(ngModel)]="model.username" #username="ngModel" placeholder="Username">
             </div>
           </div>
-          <div class="field">
+          <div class="fieldPass">
             <div class="ui left icon input">
               <i class="lock icon"></i>
               <input type="password" name="password" [(ngModel)]="model.password" #password="ngModel" placeholder="Password">
             </div>
           </div>
-          <button [disabled]="loading" class="ui fluid large teal submit button">Login</button>
+          <button [disabled]="loading" class="submitButton">Login</button>
         </div>
 
         <div class="ui error message"></div>

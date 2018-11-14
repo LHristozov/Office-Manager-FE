@@ -1,0 +1,39 @@
+.outer {
+    width: fit-content;
+	margin: 3em auto;
+	padding: 1em 2em 2em 2em;
+	border: 1px solid #ebebeb;
+	box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
+}
+.fieldUser {
+    margin-top: 30px;
+}
+.fieldPass{
+    margin-top: 30px;
+}
+input {
+	font-size: 16px;
+    width: 100%;
+    padding-top: 12px;
+	border: none;
+	border-bottom: 1px solid #000000;
+}
+input:focus ~ label, input.used ~ label {
+	top: -20px;
+  transform: scale(.75); left: -2px;
+	/* font-size: 14px; */
+	color: #4a89dc;
+}
+.submitButton {
+    margin-top: 50px;
+    padding: 12px;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 1px;
+    background: #1E90FF;
+    border:#1E90FF;   
+}
+.content { 
+    color: #1E90FF;;
+}
