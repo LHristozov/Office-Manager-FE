@@ -2,13 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-
 import { AuthGuard } from './guards/auth.guard';
 import { AuthenticationService } from './guards/authentication.service';
-
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-
 import { routing } from './app-routing.module';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -62,6 +60,7 @@ import { ItemService } from './shared/items/item.service';
 
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { ProductListComponent } from './product-list/product-list.component';
 
 
 /**
@@ -112,6 +111,8 @@ import { HomeComponent } from './home/home.component';
     MatTooltipModule,
     MatNativeDateModule,
   ],
+
+imports: [BrowserAnimationsModule],
   declarations: []
 })
 export class MaterialModule {}
@@ -124,7 +125,8 @@ export class MaterialModule {}
     ContentComponent,
     SidebarComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,
