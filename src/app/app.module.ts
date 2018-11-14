@@ -60,7 +60,7 @@ import { ItemService } from './shared/items/item.service';
 
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { ProductListComponent } from './product-list/product-list.component';
+import { ItemListComponent } from './item-list/item-list.component';
 
 
 /**
@@ -126,7 +126,7 @@ export class MaterialModule {}
     SidebarComponent,
     HomeComponent,
     LoginComponent,
-    ProductListComponent
+    ItemListComponent
   ],
   imports: [
     BrowserModule,

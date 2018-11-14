@@ -1,16 +1,16 @@
 
  <ul class="listComponent">
-    <li class="listItem" *ngFor="let product of products">
+    <li class="listItem" *ngFor="let item of items">
         <mat-card class="card-fix">
           <div class="card-fix-container">
             <mat-card-header class="centerHeader">
               <mat-card-title>
-                <p class="centerHeader">{{ product.name }}</p>
+                <p class="centerHeader">{{ item.name }}</p>
               </mat-card-title>
             </mat-card-header>
-            <img mat-card-image src="{{ product.picture }}" class="image">
+            <img mat-card-image src="{{ item.pictureUrl }}" class="image">
             <mat-card-content>
-                {{ product.description }}
+                {{ item.description }}
             </mat-card-content>
             <mat-card-actions>
               <button mat-button class="likeButton">LIKE</button>
