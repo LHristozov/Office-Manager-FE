@@ -52,7 +52,7 @@ import {
 } from '@angular/material';
 import { HttpModule } from '@angular/http';
 import { ItemService } from './shared/items/item.service';
-
+import { UsersService } from './shared/users/users.service';
 /**
  * NgModule that includes all Material modules that are required to serve
  * the Plunker.
@@ -121,7 +121,7 @@ export class MaterialModule {}
     AppRoutingModule,
     HttpModule
   ],
-  providers: [ItemService],
+  providers: [ItemService, UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
