@@ -2,6 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { AuthGuard } from './guards/auth.guard';
+import { AuthenticationService } from './guards/authentication.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { routing } from './app-routing.module';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -52,6 +57,9 @@ import {
 } from '@angular/material';
 import { HttpModule } from '@angular/http';
 import { ItemService } from './shared/items/item.service';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { ProductListComponent } from './product-list/product-list.component';
 import { UsersService } from './shared/users/users.service';
 /**
  * NgModule that includes all Material modules that are required to serve
@@ -100,15 +108,23 @@ import { UsersService } from './shared/users/users.service';
     MatToolbarModule,
     MatTooltipModule,
     MatNativeDateModule,
-  ]
+  ],
+
+imports: [BrowserAnimationsModule],
+  declarations: []
 })
 export class MaterialModule {}
+
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ContentComponent,
-    SidebarComponent
+    SidebarComponent,
+    HomeComponent,
+    LoginComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,
@@ -119,9 +135,20 @@ export class MaterialModule {}
     ReactiveFormsModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    HttpClientModule,
+    routing,
     HttpModule
   ],
+<<<<<<< HEAD
   providers: [ItemService, UsersService],
+=======
+  providers: [
+    AuthGuard,
+    AuthenticationService,
+    HttpClient,
+    ItemService
+  ],
+>>>>>>> upstream/develop
   bootstrap: [AppComponent]
 })
 export class AppModule { }
