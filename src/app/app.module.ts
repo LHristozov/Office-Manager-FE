@@ -57,11 +57,10 @@ import {
 } from '@angular/material';
 import { HttpModule } from '@angular/http';
 import { ItemService } from './shared/items/item.service';
-
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ItemListComponent } from './item-list/item-list.component';
-
+import { UsersService } from './shared/users/users.service';
 
 /**
  * NgModule that includes all Material modules that are required to serve
@@ -145,7 +144,8 @@ export class MaterialModule {}
     AuthGuard,
     AuthenticationService,
     HttpClient,
-    ItemService
+    ItemService,
+    UsersService
   ],
   bootstrap: [AppComponent]
 })
