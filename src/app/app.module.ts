@@ -139,16 +139,13 @@ export class MaterialModule {}
     routing,
     HttpModule
   ],
-<<<<<<< HEAD
-  providers: [ItemService, UsersService],
-=======
   providers: [
     AuthGuard,
     AuthenticationService,
     HttpClient,
-    ItemService
+    ItemService,
+    UsersService
   ],
->>>>>>> upstream/develop
   bootstrap: [AppComponent]
 })
 export class AppModule { }
