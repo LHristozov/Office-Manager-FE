@@ -59,8 +59,9 @@ import { HttpModule } from '@angular/http';
 import { ItemService } from './shared/items/item.service';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { ProductListComponent } from './product-list/product-list.component';
+import { ItemListComponent } from './item-list/item-list.component';
 import { UsersService } from './shared/users/users.service';
+
 /**
  * NgModule that includes all Material modules that are required to serve
  * the Plunker.
@@ -124,7 +125,7 @@ export class MaterialModule {}
     SidebarComponent,
     HomeComponent,
     LoginComponent,
-    ProductListComponent
+    ItemListComponent
   ],
   imports: [
     BrowserModule,
