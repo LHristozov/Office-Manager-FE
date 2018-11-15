@@ -13,7 +13,7 @@
                 {{ item.description }}
             </mat-card-content>
             <mat-card-actions>
-              <button mat-button class="likeButton">LIKE</button>
+              <button mat-button [disabled]="item.isDisabled" (click)="likeAnItem(item)" class="likeButton">LIKE</button>
               <button mat-button class="shareButton">SHARE</button>
             </mat-card-actions>
           </div>

@@ -4,6 +4,7 @@ export class Item {
     category?: ItemCategory;
     description?: string;
     pictureUrl?: string;
+    isDisabled?: Boolean;
 }
 
 export enum ItemCategory {
