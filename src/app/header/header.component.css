@@ -1,0 +1,25 @@
+.mat-toolbar {
+    background: #4a89dc;
+}
+
+.logo {
+    background: white;
+    width: 144px;
+}
+
+.mat-card-image:first-child {
+    margin-top: 34px;
+    padding-bottom: 24px;
+    padding-top: 2px;
+}
+
+.mat-list-item {
+    color: white;
+    margin-left: auto;
+    margin-top:12px;
+}
+
+.material-icons {
+    margin-right: 20px;
+    font-size: 30px;
+}
