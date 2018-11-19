@@ -1,13 +1,7 @@
-.feedback {
-    background-color : #31B0D5;
-    color: white;
-    padding: 25px 25px;
-    border-radius: 50px;
-    border-color: #31B0D5;
-  }
-  
-  #mybutton {
-    position: fixed;
-    bottom: 15px;
-    right: 15px;
-  }
+.fab-bottom-right {
+  background-color: #4a89dc;
+  color: #FFFFFF;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+}
