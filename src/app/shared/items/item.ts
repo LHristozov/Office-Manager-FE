@@ -11,5 +11,6 @@ export enum ItemCategory {
     Coffee = 'COFFEE',
     Tea = 'TEA',
     Fruits = 'FRUITS',
-    Custom = 'CUSTOM'
+    Custom = 'CUSTOM',
+    Other = 'OTHER'
 }
