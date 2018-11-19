@@ -65,6 +65,7 @@ import { CustomItemComponent } from './custom-item-button/custom-item-button.com
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormPopUpComponent } from './form-pop-up/form-pop-up.component';
 import { SummaryComponent } from './summary/summary.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 /**
  * NgModule that includes all Material modules that are required to serve
@@ -116,7 +117,7 @@ import { SummaryComponent } from './summary/summary.component';
   ],
 
 imports: [BrowserAnimationsModule],
-  declarations: []
+declarations: []
 })
 export class MaterialModule {}
 
@@ -132,7 +133,8 @@ export class MaterialModule {}
     ItemListComponent,
     CustomItemComponent,
     FormPopUpComponent,
-    SummaryComponent
+    SummaryComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,
