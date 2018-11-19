@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CustomItemComponent } from './custom-item.component';
+import { CustomItemComponent } from './custom-item-button.component';
 
 describe('CustomItemComponent', () => {
   let component: CustomItemComponent;

@@ -3,9 +3,9 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormPopUpComponent } from '../form-pop-up/form-pop-up.component';
 
 @Component({
-  selector: 'app-custom-item',
-  templateUrl: './custom-item.component.html',
-  styleUrls: ['./custom-item.component.css']
+  selector: 'app-custom-item-button',
+  templateUrl: './custom-item-button.component.html',
+  styleUrls: ['./custom-item-button.component.css']
 })
 export class CustomItemComponent implements OnInit {
 
