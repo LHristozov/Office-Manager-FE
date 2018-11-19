@@ -61,6 +61,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ItemListComponent } from './item-list/item-list.component';
 import { UsersService } from './shared/users/users.service';
+import { SummaryComponent } from './summary/summary.component';
 
 /**
  * NgModule that includes all Material modules that are required to serve
@@ -125,7 +126,8 @@ export class MaterialModule {}
     SidebarComponent,
     HomeComponent,
     LoginComponent,
-    ItemListComponent
+    ItemListComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,
@@ -135,10 +137,10 @@ export class MaterialModule {}
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     HttpClientModule,
     routing,
-    HttpModule
+    HttpModule,
+    AppRoutingModule,
   ],
   providers: [
     AuthGuard,
