@@ -1,0 +1,38 @@
+
+<div class="modal-header">
+  <h4 class="modal-title">Produkt anfordern</h4>
+  <button type="button" class="close" aria-label="Close"
+   (click)="activeModal.dismiss('Cross click')">
+  </button>
+</div>
+<form [formGroup]="myForm" (ngSubmit)="submitForm()">
+  <div class="modal-boy">
+    <div class="container">
+      <div class="form-group">
+        <label for="title">Titel</label>
+        <input type="text" class="form-control" formControlName="title" required/>
+      </div>
+      <div class="form-group">
+        <label for="description">Beschreibung</label>
+        <input type="description" class="form-control" formControlName="description" required/>
+      </div>
+      <div class="form-group">
+        <label for="category">Kategorie</label>
+        <select class="form-control" formControlName="category">
+            <option value="" >Kaffee</option>
+            <option value="">Tee</option>
+             <option value="">Obst</option>
+             <option value="">Andere</option>
+          </select>
+      </div>
+      <div class="form-group">
+          <label for="pictureUrl">URL zum Bild</label>
+          <input type="pictureUrl" class="form-control" formControlName="pictureUrl" required/>
+        </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+      <button class="btn btn-cancel" >Stornieren</button>
+    <button class="btn btn-success" [disabled]="!myForm.valid">Formular absenden</button>
+  </div>
+</form>

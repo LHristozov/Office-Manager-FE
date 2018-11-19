@@ -5,6 +5,7 @@ export class Item {
     description?: string;
     pictureUrl?: string;
     isDisabled?: Boolean;
+    isRequested?: Boolean;
 }
 
 export enum ItemCategory {

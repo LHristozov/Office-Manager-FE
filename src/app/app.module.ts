@@ -61,6 +61,9 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ItemListComponent } from './item-list/item-list.component';
 import { UsersService } from './shared/users/users.service';
+import { CustomItemComponent } from './custom-item-button/custom-item-button.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormPopUpComponent } from './form-pop-up/form-pop-up.component';
 import { SummaryComponent } from './summary/summary.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 
@@ -128,6 +131,8 @@ export class MaterialModule {}
     HomeComponent,
     LoginComponent,
     ItemListComponent,
+    CustomItemComponent,
+    FormPopUpComponent,
     SummaryComponent,
     SearchBarComponent
   ],
@@ -142,7 +147,8 @@ export class MaterialModule {}
     HttpClientModule,
     routing,
     HttpModule,
-    AppRoutingModule,
+    NgbModule.forRoot(),
+    AppRoutingModule
   ],
   providers: [
     AuthGuard,
@@ -151,6 +157,10 @@ export class MaterialModule {}
     ItemService,
     UsersService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    FormPopUpComponent
+  ]
+
 })
 export class AppModule { }

@@ -22,6 +22,10 @@ export class ItemService {
     return this.http.get(`${SERVER_DOMAIN}/items`).pipe(map((response: Response) => response.json()));
   }
 
+  requestItem(item: Item) {
+    return this.httpClient.post(`${SERVER_DOMAIN}/items`, item).toPromise();
+  }
+
   placeAnOrder(order: Orders) {
     return this.httpClient.post(`${SERVER_DOMAIN}/orders`, order).toPromise();
   }
