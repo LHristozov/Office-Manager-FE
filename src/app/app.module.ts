@@ -62,6 +62,7 @@ import { HomeComponent } from './home/home.component';
 import { ItemListComponent } from './item-list/item-list.component';
 import { UsersService } from './shared/users/users.service';
 import { SummaryComponent } from './summary/summary.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 /**
  * NgModule that includes all Material modules that are required to serve
@@ -113,7 +114,7 @@ import { SummaryComponent } from './summary/summary.component';
   ],
 
 imports: [BrowserAnimationsModule],
-  declarations: []
+declarations: []
 })
 export class MaterialModule {}
 
@@ -127,7 +128,8 @@ export class MaterialModule {}
     HomeComponent,
     LoginComponent,
     ItemListComponent,
-    SummaryComponent
+    SummaryComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,

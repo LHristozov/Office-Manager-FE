@@ -25,9 +25,10 @@ export class ItemListComponent implements OnInit {
       this.subscription = this.messageService.getMessage().subscribe(
         message => {
           if (message) {
-            const filterCategory: string = String(message.text);
+            const filterWord: string = String(message.text);
             this.filteredItems =
-            this.allItems.filter((item) => item.category && item.category === filterCategory);
+            this.allItems.filter((item) => item.category
+            && (item.category === filterWord || item.name === filterWord));
           } else {
             this.filteredItems = this.allItems;
           }

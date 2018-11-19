@@ -1,0 +1,8 @@
+<div class="header-search" style="width: 100%; padding: 14px;height: 100%;">
+    <input type="text" name="searchField" placeholder="Search" style="width: 100%; height: 50%;" matInput [formControl]="myControl" [matAutocomplete]="auto" aria-label="Number" >
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)='showSelectedItem($event.option.value)'>
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+</div>
