@@ -1,26 +1,37 @@
-<mat-sidenav-container class="example-container">
-    <mat-sidenav mode="side" opened>
 
-        <mat-nav-list>
+<app-header></app-header>
+<mat-sidenav-container class="example-container">
+        <mat-sidenav mode="side" opened>
+          <mat-nav-list>
             <mat-accordion>
-              <a mat-list-item>
-                <mat-icon mat-list-icon>home</mat-icon><span mat-line>Home</span></a>
-              <a mat-list-item>
-                <mat-icon mat-list-icon>settings</mat-icon><span mat-line>Settings</span></a>
-              <a [routerLink]="['/login']" mat-list-item>
-                <mat-icon mat-list-icon>exit_to_app </mat-icon><span mat-line>Sign out</span></a>
+              <mat-expansion-panel class="mat-elevation-z0" expanded=[true]>
+                <mat-expansion-panel-header  [expandedHeight]="'48px'">
+                  <mat-panel-title>Categories</mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-nav-list>
+                  <mat-accordion>
+                    
+                      <a mat-list-item class="matListItem" (click)="clear()">
+                          <span mat-line>Alle</span>
+                        </a>
+                    <a mat-list-item class="matListItem" (click)="filterCoffee()">
+                      <span mat-line>Kaffee</span>
+                    </a>
+                    <a mat-list-item class="matListItem" (click)="filterTea()">
+                      <span mat-line>Tee</span>
+                    </a>
+                    <a mat-list-item class="matListItem" (click)="filterFruits()">
+                      <span mat-line>Obst</span>
+                    </a>
+                  </mat-accordion>
+                </mat-nav-list>
+              </mat-expansion-panel>
             </mat-accordion>
           </mat-nav-list>
-      
-      
-    </mat-sidenav>
-    
-    <!-- This is the Main Content of the page  -->
-    <mat-sidenav-content>
-
-      <app-content>
-          <router-outlet></router-outlet>
-      </app-content>
+        </mat-sidenav>
         
-    </mat-sidenav-content>
-</mat-sidenav-container>
+        <!-- This is the Main Content of the page  -->
+        <mat-sidenav-content>            
+          <router-outlet></router-outlet>
+        </mat-sidenav-content>
+      </mat-sidenav-container>
