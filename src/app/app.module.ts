@@ -64,6 +64,7 @@ import { UsersService } from './shared/users/users.service';
 import { CustomItemComponent } from './custom-item/custom-item.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormPopUpComponent } from './form-pop-up/form-pop-up.component';
+import { SummaryComponent } from './summary/summary.component';
 
 /**
  * NgModule that includes all Material modules that are required to serve
@@ -129,7 +130,8 @@ export class MaterialModule {}
     HomeComponent,
     LoginComponent,
     ItemListComponent,
-    CustomItemComponent
+    CustomItemComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,
@@ -139,11 +141,11 @@ export class MaterialModule {}
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     HttpClientModule,
     routing,
     HttpModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    AppRoutingModule
   ],
   providers: [
     AuthGuard,
