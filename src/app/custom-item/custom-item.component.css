@@ -1,0 +1,13 @@
+.feedback {
+    background-color : #31B0D5;
+    color: white;
+    padding: 25px 25px;
+    border-radius: 50px;
+    border-color: #31B0D5;
+  }
+  
+  #mybutton {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+  }

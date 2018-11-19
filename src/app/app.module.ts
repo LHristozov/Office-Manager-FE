@@ -61,6 +61,9 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ItemListComponent } from './item-list/item-list.component';
 import { UsersService } from './shared/users/users.service';
+import { CustomItemComponent } from './custom-item/custom-item.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormPopUpComponent } from './form-pop-up/form-pop-up.component';
 
 /**
  * NgModule that includes all Material modules that are required to serve
@@ -112,7 +115,7 @@ import { UsersService } from './shared/users/users.service';
   ],
 
 imports: [BrowserAnimationsModule],
-  declarations: []
+  declarations: [FormPopUpComponent]
 })
 export class MaterialModule {}
 
@@ -125,7 +128,8 @@ export class MaterialModule {}
     SidebarComponent,
     HomeComponent,
     LoginComponent,
-    ItemListComponent
+    ItemListComponent,
+    CustomItemComponent
   ],
   imports: [
     BrowserModule,
@@ -138,7 +142,8 @@ export class MaterialModule {}
     AppRoutingModule,
     HttpClientModule,
     routing,
-    HttpModule
+    HttpModule,
+    NgbModule.forRoot()
   ],
   providers: [
     AuthGuard,
@@ -147,6 +152,10 @@ export class MaterialModule {}
     ItemService,
     UsersService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    FormPopUpComponent
+  ]
+
 })
 export class AppModule { }
