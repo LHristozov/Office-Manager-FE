@@ -25,6 +25,10 @@ export class SidebarComponent implements OnInit {
     this.messageService.sendMessage('FRUITS');
   }
 
+  filterOther(): void {
+    this.messageService.sendMessage('OTHER');
+  }
+
   clear(): void {
     this.messageService.clearMessage();
   }
