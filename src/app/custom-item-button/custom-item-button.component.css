@@ -1,7 +1,7 @@
 .fab-bottom-right {
   background-color: #4a89dc;
   color: #FFFFFF;
-  position: absolute;
+  position: fixed;
   right: 15px;
   bottom: 15px;
 }

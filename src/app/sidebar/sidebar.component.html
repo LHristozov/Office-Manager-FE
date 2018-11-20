@@ -1,6 +1,6 @@
 
 <app-header></app-header>
-<mat-sidenav-container class="example-container">
+<mat-sidenav-container class="example-container" style="height: auto; position: absolute;">
         <mat-sidenav mode="side" opened>
           <mat-nav-list>
             <mat-accordion>
@@ -34,7 +34,7 @@
         </mat-sidenav>
         
         <!-- This is the Main Content of the page  -->
-        <mat-sidenav-content>            
+        <mat-sidenav-content style="overflow: auto;">
           <router-outlet></router-outlet>
         </mat-sidenav-content>
       </mat-sidenav-container>
