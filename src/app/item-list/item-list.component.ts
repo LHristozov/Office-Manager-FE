@@ -36,7 +36,7 @@ export class ItemListComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.itemService.getAll().subscribe((fetchedItems: Item[]) => {
+    this.itemService.getItems().subscribe((fetchedItems: Item[]) => {
       this.allItems = fetchedItems.filter((item) => item.isRequested === false);
       this.filteredItems =  this.allItems;
       this.itemService.getAllOrders().then(res => {

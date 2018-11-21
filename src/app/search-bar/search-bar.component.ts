@@ -20,7 +20,7 @@ export class SearchBarComponent implements OnInit {
 
   ngOnInit() {
     const itemNames: string[] = [];
-    this.itemService.getAll().subscribe((items) => {
+    this.itemService.getItems().subscribe((items) => {
       items.forEach(item => itemNames.push(item.name));
       this.options = itemNames;
     });
