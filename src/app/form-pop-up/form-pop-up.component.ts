@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormBuilder} from '@angular/forms';
 import { ItemService } from '../shared/items/item.service';
@@ -10,7 +10,6 @@ import { _MatListItemMixinBase } from '@angular/material';
   templateUrl: './form-pop-up.component.html',
   styleUrls: ['./form-pop-up.component.css']
 })
-
 
 export class FormPopUpComponent implements OnInit {
   @Input()id: number;
@@ -29,9 +28,6 @@ export class FormPopUpComponent implements OnInit {
       category: '',
       pictureUrl: ''
     });
-  }
-  closePopUp() {
-    this.activeModal.close('PopUp Closed');
   }
   private submitForm() {
     this.requestedItem.name = this.myForm.value.title;
