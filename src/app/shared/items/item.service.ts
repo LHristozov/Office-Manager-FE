@@ -32,6 +32,10 @@ export class ItemService {
     return this.http.get(`${SERVER_DOMAIN}/items`).pipe(map((response: Response) => response.json()));
   }
 
+  getAllCached(): Observable<Item[]> {
+    return this.http.get(`${SERVER_DOMAIN}/items`).pipe(map((response: Response) => response.json()));
+  }
+
   requestItem(item: Item) {
     return this.httpClient.post(`${SERVER_DOMAIN}/items`, item).toPromise();
   }
@@ -41,6 +45,15 @@ export class ItemService {
   }
 
   getAllOrders() {
-  return this.httpClient.get(`${SERVER_DOMAIN}/orders`).toPromise();
+    return this.httpClient.get(`${SERVER_DOMAIN}/orders`).toPromise();
   }
+
+  deleteItem(id: string) {
+    return this.httpClient.delete(`${SERVER_DOMAIN}/items/${id}`).toPromise();
+  }
+
+  updateItem(item: Item) {
+    return this.httpClient.post(`${SERVER_DOMAIN}/items`, item).toPromise();
+  }
+
 }

@@ -1,10 +1,11 @@
 <mat-toolbar class="mat-elevation-z2">
     <img mat-card-image src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Adesso_AG_logo.svg/2000px-Adesso_AG_logo.svg.png" class="logo">
     <app-search-bar  style="width: 45%;height: 100%; margin-left: 20px"></app-search-bar>
-    <a [routerLink]="['/login']" mat-list-item>
+    <a [routerLink]="['requested']" class="mat-list-item-left">
+        <mat-icon mat-list-icon material-icons>ballot</mat-icon>
+    </a>
+    <span class="fill-space"></span>
+    <a [routerLink]="['/login']"  class="mat-list-item-right">
         <mat-icon mat-list-icon material-icons>exit_to_app </mat-icon>
     </a>
 </mat-toolbar>
- 
-     
-      

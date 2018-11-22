@@ -66,6 +66,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormPopUpComponent } from './form-pop-up/form-pop-up.component';
 import { SummaryComponent } from './summary/summary.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { ReqItemListComponent } from './req-item-list/req-item-list.component';
+import { RequestedComponent } from './requested/requested.component';
+import { TextEllipsisPipe } from './text-ellipsis.pipe';
 
 /**
  * NgModule that includes all Material modules that are required to serve
@@ -134,7 +137,10 @@ export class MaterialModule {}
     CustomItemComponent,
     FormPopUpComponent,
     SummaryComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    ReqItemListComponent,
+    RequestedComponent,
+    TextEllipsisPipe
   ],
   imports: [
     BrowserModule,

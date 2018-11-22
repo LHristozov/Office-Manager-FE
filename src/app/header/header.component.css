@@ -13,13 +13,25 @@
     padding-top: 2px;
 }
 
-.mat-list-item {
+.mat-list-item-right {
     color: white;
-    margin-left: auto;
-    margin-top:12px;
+    margin-top: 8px;
+}
+
+.mat-list-item-left {
+    color: white;
+    margin-top: 8px;
+}
+
+.requestetBtn {
+    background-color: #eeeeee;
 }
 
 .material-icons {
     margin-right: 20px;
     font-size: 30px;
+}
+
+.fill-space {
+    flex: 1 1 auto;
 }

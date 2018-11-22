@@ -1,0 +1,67 @@
+.listComponent {
+    color: #eeeeee;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: auto;
+}
+
+.listItem {
+    display: flex;
+    padding: 0.5rem;
+}
+
+.centerHeader {
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.image {
+    display: block;
+    margin: auto;
+    width: 8rem;
+}
+
+.deleteButton {
+    background-color: #eeeeee;
+    width: 5rem;
+}
+
+.acceptButton {
+    background-color: #eeeeee;
+    width: 5rem;
+}
+
+.shareButton {
+    margin: 0 0 0 0.8rem !important;
+}
+
+.card-fix {
+    padding: 0;
+  
+    .card-fix-container {
+      box-sizing: border-box;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      width: 12rem;
+
+      .mat-card-avatar {
+          height: 0;
+          width: 0;
+      }
+  
+      .mat-card-content {
+          display:block;
+          margin: 2rem 1.1rem 0.6rem 1.1rem;
+      }
+  
+      & > .mat-card-actions:last-child {
+        display: block;
+        margin: auto auto 0.6rem auto;
+        padding-bottom: 0;
+      }
+    }
+  }
+  

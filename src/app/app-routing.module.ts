@@ -6,6 +6,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { SummaryComponent } from './summary/summary.component';
 import { ContentComponent } from './content/content.component';
+import { RequestedComponent } from './requested/requested.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
       children: [
         { path: 'content', component: ContentComponent, canActivate: [AuthGuard] },
+        { path: 'requested', component: RequestedComponent, canActivate: [AuthGuard] },
         { path: 'summary', component: SummaryComponent, canActivate: [AuthGuard] },
         { path: '', redirectTo: 'content', pathMatch: 'prefix'},
       ]

@@ -1,0 +1,21 @@
+<ul class="listComponent">
+  <li class="listItem" *ngFor="let item of reqItemList">
+      <mat-card class="card-fix">
+        <div class="card-fix-container">
+          <mat-card-header class="centerHeader">
+            <mat-card-title matTooltip={{item.name}}>
+              <p class="centerHeader">{{ item.name | textEllipsis:[10] }}</p>
+            </mat-card-title>
+          </mat-card-header>
+          <img mat-card-image src="{{ item.pictureUrl }}" class="image">
+          <mat-card-content>
+              {{ item.description }}
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button (click)="acceptItem(item)" class="acceptButton">Einfügen</button>
+            <button mat-button (click)="deleteItem(item.id)" class="deleteButton">Löschen</button>
+          </mat-card-actions>
+        </div>
+      </mat-card>
+  </li>
+</ul>
