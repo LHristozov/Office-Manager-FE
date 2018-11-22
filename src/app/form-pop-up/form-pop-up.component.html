@@ -29,6 +29,7 @@
           <label for="pictureUrl">URL zum Bild</label>
           <input type="pictureUrl" class="form-control" formControlName="pictureUrl" maxlength="150" required/>
         </div>
+      <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
     </div>
   </div>
   <div class="modal-footer">
