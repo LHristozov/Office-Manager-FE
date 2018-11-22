@@ -2,7 +2,7 @@ import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormBuilder} from '@angular/forms';
 import { ItemService } from '../shared/items/item.service';
-import { Item } from '../shared/items/item';
+import { Item, ItemCategory } from '../shared/items/item';
 import { _MatListItemMixinBase } from '@angular/material';
 import { ToastrService } from 'ngx-toastr';
 
@@ -16,6 +16,7 @@ export class FormPopUpComponent implements OnInit {
   @Input()id: number;
   myForm: FormGroup;
   requestedItem: Item = new Item();
+  category = ItemCategory;
   public loading = false;
   constructor(private itemService: ItemService, public activeModal: NgbActiveModal, private formBuilder: FormBuilder,
     private toastr: ToastrService) {
@@ -33,10 +34,11 @@ export class FormPopUpComponent implements OnInit {
     });
   }
   private submitForm() {
+    debugger
     this.loading = true;
     this.requestedItem.name = this.myForm.value.title;
     this.requestedItem.description = this.myForm.value.description;
-    this.requestedItem.category = this.myForm.value.category;
+    this.requestedItem.category = this.myForm.value.category; 
     this.requestedItem.pictureUrl = this.myForm.value.pictureUrl;
     this.requestedItem.isRequested = true;
 

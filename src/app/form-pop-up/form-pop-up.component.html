@@ -18,12 +18,12 @@
       </div>
       <div class="form-group">
         <label for="category">Kategorie</label>
-        <select class="form-control" formControlName="category">
-            <option value="" >Kaffee</option>
-            <option value="">Tee</option>
-             <option value="">Obst</option>
-             <option value="">Andere</option>
-          </select>
+        <select class="form-control" formControlName="category" required>
+          <option value="{{category.Coffee}}" >Kaffee</option>
+          <option value="{{category.Tea}}">Tee</option>
+          <option value="{{category.Fruits}}">Obst</option>
+          <option value="{{category.Other}}">Andere</option>
+        </select>
       </div>
       <div class="form-group">
           <label for="pictureUrl">URL zum Bild</label>
@@ -33,7 +33,7 @@
     </div>
   </div>
   <div class="modal-footer">
-      <button class="btn btn-cancel" (click)="activeModal.dismiss('Cross click')">Cancel</button>
+    <button class="btn btn-cancel" (click)="activeModal.dismiss('Cross click')">Cancel</button>
     <button class="btn btn-success" [disabled]="!myForm.valid">Formular absenden</button>
   </div>
 </form>
