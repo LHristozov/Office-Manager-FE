@@ -1,6 +1,9 @@
+import { Item } from './shared/items/item';
+
 export class Orders {
-    id?: string;
-    order_giver_id?: string;
-    item_id?: string;
-    order_date?: string;
+  id?: string;
+  order_giver_id?: string;
+  item?: Item;
+  order_date?: string;
+  isComplete?: Boolean;
 }

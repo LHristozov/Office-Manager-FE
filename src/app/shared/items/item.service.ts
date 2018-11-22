@@ -16,7 +16,7 @@ const CACHE_SIZE = 1; // We only want the most recent values fetched from the db
 export class ItemService {
   private cache: Observable<Item[]>;
 
-  constructor(private http: Http, private httpClient: HttpClient) { }
+  constructor(private http: Http, private httpClient: HttpClient) {}
 
   getItems(): Observable<Item[]> {
     if (!this.cache) {
@@ -29,7 +29,9 @@ export class ItemService {
   }
 
   private getAll(): Observable<Item[]> {
-    return this.http.get(`${SERVER_DOMAIN}/items`).pipe(map((response: Response) => response.json()));
+    return this.http
+      .get(`${SERVER_DOMAIN}/items`)
+      .pipe(map((response: Response) => response.json()));
   }
 
   getAllCached(): Observable<Item[]> {
@@ -56,4 +58,23 @@ export class ItemService {
     return this.httpClient.post(`${SERVER_DOMAIN}/items`, item).toPromise();
   }
 
+updateOrders(orders: any) {
+    debugger;
+    return this.httpClient.put(`${SERVER_DOMAIN}/orders/`, orders).toPromise();
+  }
+
+  getWeekNumber(d) {
+    // Copy date so don't modify original
+    d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+    // Set to nearest Thursday: current date + 4 - current day number
+    // Make Sunday's day number 7
+    d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
+    // Get first day of year
+    let yearStart: any;
+    yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+    // Calculate full weeks to nearest Thursday
+    const weekNo = Math.ceil(((d - yearStart) / 86400000 + 1) / 7);
+    // Return array of year and week number
+    return [d.getUTCFullYear(), weekNo];
+  }
 }

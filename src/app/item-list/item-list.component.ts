@@ -30,11 +30,11 @@ export class ItemListComponent implements OnInit {
             this.filteredItems =
             this.allItems.filter((item) => item.category
             && (item.category === filterWord || item.name === filterWord));
-          } else {
-            this.filteredItems = this.allItems;
-          }
-        });
-    }
+        } else {
+          this.filteredItems = this.allItems;
+        }
+      });
+  }
 
   ngOnInit() {
     this.itemService.getItems().subscribe((fetchedItems: Item[]) => {
@@ -51,7 +51,7 @@ export class ItemListComponent implements OnInit {
   }
 
   likeAnItem(item) {
-    this.order.item_id = item.id;
+    this.order.item = item;
     this.order.order_giver_id = this.currentUser.id;
 
     this.itemService.placeAnOrder(this.order).then(res => {
@@ -64,15 +64,15 @@ export class ItemListComponent implements OnInit {
   disableAllLikedItems(selectedItem?: Item) {
     for (const order of this.orders) {
       const date = new Date(order.order_date);
-      const orderWeek = this.getWeekNumber(date);
-      const currentWeek = this.getWeekNumber(new Date());
+      const orderWeek = this.itemService.getWeekNumber(date);
+      const currentWeek = this.itemService.getWeekNumber(new Date());
       if (selectedItem) {
         selectedItem.isDisabled = true;
       } else {
         for (const item of this.filteredItems) {
           if (orderWeek[1] === currentWeek[1]
-            && order.order_giver_id === Number(this.currentUser.id)
-            && Number(item.id) === order.item_id) {
+            && order.order_giver_id === this.currentUser.id
+            && item.id === order.item.id) {
             item.isDisabled = true;
           }
         }
@@ -81,18 +81,5 @@ export class ItemListComponent implements OnInit {
     }
   }
 
-  private getWeekNumber(d) {
-    // Copy date so don't modify original
-    d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
-    // Set to nearest Thursday: current date + 4 - current day number
-    // Make Sunday's day number 7
-    d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
-    // Get first day of year
-    let yearStart: any;
-    yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
-    // Calculate full weeks to nearest Thursday
-    const weekNo = Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
-    // Return array of year and week number
-    return [d.getUTCFullYear(), weekNo];
-  }
+
 }
