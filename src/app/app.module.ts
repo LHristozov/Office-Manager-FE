@@ -69,6 +69,8 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ReqItemListComponent } from './req-item-list/req-item-list.component';
 import { RequestedComponent } from './requested/requested.component';
 import { TextEllipsisPipe } from './text-ellipsis.pipe';
+import { NgxLoadingModule } from 'ngx-loading';
+import { ToastrModule } from 'ngx-toastr';
 
 /**
  * NgModule that includes all Material modules that are required to serve
@@ -154,7 +156,9 @@ export class MaterialModule {}
     routing,
     HttpModule,
     NgbModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    NgxLoadingModule.forRoot({}),
+    ToastrModule.forRoot({})
   ],
   providers: [
     AuthGuard,
