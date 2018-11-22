@@ -1,8 +1,8 @@
 
 <div class="modal-header">
   <h4 class="modal-title">Produkt anfordern</h4>
-  <button type="button" class="close" aria-label="Close"
-   (click)="activeModal.dismiss('Cross click')">
+  <button class="close" (click)="activeModal.dismiss('Cross click')"> 
+   <mat-icon>clear</mat-icon>
   </button>
 </div>
 <form [formGroup]="myForm" (ngSubmit)="submitForm()">
@@ -10,11 +10,11 @@
     <div class="container">
       <div class="form-group">
         <label for="title">Titel</label>
-        <input type="text" class="form-control" formControlName="title" required/>
+        <input #title type="text" class="form-control" formControlName="title" maxlength="30" autofocus required />
       </div>
       <div class="form-group">
         <label for="description">Beschreibung</label>
-        <input type="description" class="form-control" formControlName="description" required/>
+        <input type="description" class="form-control" formControlName="description" maxlength="100" required/>
       </div>
       <div class="form-group">
         <label for="category">Kategorie</label>
@@ -27,12 +27,13 @@
       </div>
       <div class="form-group">
           <label for="pictureUrl">URL zum Bild</label>
-          <input type="pictureUrl" class="form-control" formControlName="pictureUrl" required/>
+          <input type="pictureUrl" class="form-control" formControlName="pictureUrl" maxlength="150" required/>
         </div>
+      <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
     </div>
   </div>
   <div class="modal-footer">
-      <button class="btn btn-cancel" >Stornieren</button>
+      <button class="btn btn-cancel" (click)="activeModal.dismiss('Cross click')">Cancel</button>
     <button class="btn btn-success" [disabled]="!myForm.valid">Formular absenden</button>
   </div>
 </form>
