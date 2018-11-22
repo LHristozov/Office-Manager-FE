@@ -20,6 +20,7 @@ export class ItemListComponent implements OnInit {
   currentUser;
 
   constructor(
+   
     private itemService: ItemService,
     private messageService: MessageService) {
       this.subscription = this.messageService.getMessage().subscribe(
