@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Response } from '@angular/http';
+import { Http, Response } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -15,7 +15,7 @@ const CACHE_SIZE = 1; // We only want the most recent values fetched from the db
 export class ItemService {
   private cache: Observable<Item[]>;
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private http: Http, private httpClient: HttpClient) {}
 
   getItems(): Observable<Item[]> {
     if (!this.cache) {
@@ -28,7 +28,7 @@ export class ItemService {
   }
 
   private fetchItems(): Observable<Item[]> {
-    return this.httpClient.get(`${SERVER_DOMAIN}/items`).pipe(map((response: Response) => response.json()));
+    return this.http.get(`${SERVER_DOMAIN}/items`).pipe(map((response: Response) => response.json()));
   }
 
   requestItem(item: Item) {

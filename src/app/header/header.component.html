@@ -15,7 +15,12 @@
     <mat-icon mat-list-icon material-icons>ballot</mat-icon>
   </a>
   <span class="fill-space"></span>
-  <a [routerLink]="['/login']" class="mat-list-item-right">
-    <mat-icon mat-list-icon material-icons>exit_to_app </mat-icon>
-  </a>
+  <div class="icons">
+      <a [routerLink]="['history']" class="mat-list-item-right">
+          <mat-icon mat-list-icon material-icons class="margin-right: 12px;">history </mat-icon>
+      </a>
+      <a [routerLink]="['/login']" class="mat-list-item-right">
+          <mat-icon mat-list-icon material-icons>exit_to_app </mat-icon>
+      </a>
+  </div>
 </mat-toolbar>

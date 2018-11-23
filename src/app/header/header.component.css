@@ -25,6 +25,8 @@
 
 .requestetBtn {
     background-color: #eeeeee;
+    margin-left: 12px;
+    margin-top:12px;
 }
 
 .material-icons {
@@ -34,4 +36,11 @@
 
 .fill-space {
     flex: 1 1 auto;
+}
+
+.icons {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    padding-left: 10px;
 }

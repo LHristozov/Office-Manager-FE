@@ -72,6 +72,7 @@ import { TextEllipsisPipe } from './text-ellipsis.pipe';
 import { NgxLoadingModule } from 'ngx-loading';
 import { ToastrModule } from 'ngx-toastr';
 import { OrdersService } from './shared/orders/orders.service';
+import { HistorizationComponent } from './historization/historization.component';
 
 /**
  * NgModule that includes all Material modules that are required to serve
@@ -143,7 +144,8 @@ export class MaterialModule {}
     SearchBarComponent,
     ReqItemListComponent,
     RequestedComponent,
-    TextEllipsisPipe
+    TextEllipsisPipe,
+    HistorizationComponent
   ],
   imports: [
     BrowserModule,
