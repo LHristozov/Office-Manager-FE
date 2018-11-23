@@ -47,7 +47,7 @@ export class ItemService {
   }
 
   getAllOrders() {
-    return this.httpClient.get(`${SERVER_DOMAIN}/orders`).toPromise();
+    return this.httpClient.get<Orders[]>(`${SERVER_DOMAIN}/orders`).toPromise<Orders[]>();
   }
 
   deleteItem(id: string) {
@@ -58,8 +58,7 @@ export class ItemService {
     return this.httpClient.post(`${SERVER_DOMAIN}/items`, item).toPromise();
   }
 
-updateOrders(orders: any) {
-    debugger;
+  updateOrders(orders: any) {
     return this.httpClient.put(`${SERVER_DOMAIN}/orders/`, orders).toPromise();
   }
 

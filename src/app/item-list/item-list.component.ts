@@ -20,7 +20,6 @@ export class ItemListComponent implements OnInit {
   currentUser;
 
   constructor(
-   
     private itemService: ItemService,
     private messageService: MessageService) {
       this.subscription = this.messageService.getMessage().subscribe(
@@ -52,7 +51,7 @@ export class ItemListComponent implements OnInit {
 
   likeAnItem(item) {
     this.order.item = item;
-    this.order.order_giver_id = this.currentUser.id;
+    this.order.order_giver_id = Number(this.currentUser.id);
 
     this.itemService.placeAnOrder(this.order).then(res => {
       this.disableAllLikedItems(item);
@@ -62,16 +61,16 @@ export class ItemListComponent implements OnInit {
   }
 
   disableAllLikedItems(selectedItem?: Item) {
+    if (selectedItem) {
+      selectedItem.isDisabled = true;
+    } else {
     for (const order of this.orders) {
       const date = new Date(order.order_date);
       const orderWeek = this.itemService.getWeekNumber(date);
       const currentWeek = this.itemService.getWeekNumber(new Date());
-      if (selectedItem) {
-        selectedItem.isDisabled = true;
-      } else {
         for (const item of this.filteredItems) {
           if (orderWeek[1] === currentWeek[1]
-            && order.order_giver_id === this.currentUser.id
+            && order.order_giver_id === Number(this.currentUser.id)
             && item.id === order.item.id) {
             item.isDisabled = true;
           }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../shared/items/item.service';
 import { Orders } from '../Orders';
+import { Item } from '../shared/items/item';
 
 @Component({
   selector: 'app-summary',
@@ -8,18 +9,18 @@ import { Orders } from '../Orders';
   styleUrls: ['./summary.component.scss']
 })
 export class SummaryComponent implements OnInit {
-  orders: any;
-  currentUserOrders: any[] = [];
+  orders: Orders[];
+  currentUserOrders: Orders[] = [];
   mappedItem = new Map<any, any>();
-  allOrders: any[] = [];
-  ordersToBeUpdated: any = new Array<Orders>();
+  allOrders: Orders[] = [];
+  ordersToBeUpdated: Orders[] = new Array<Orders>();
   currentUser: any;
-  isAdmin: Boolean = false;
-  items: any;
-  itemArray: any[] = [];
+  isAdmin = false;
+  items: Item[];
+  itemArray: Item[] = [];
   model: any;
-  curentWeekOrders: any;
-  hasItems: Boolean = false;
+  curentWeekOrders: Orders[];
+  hasItems = false;
 
   constructor(private itemService: ItemService) {}
 
@@ -41,7 +42,7 @@ export class SummaryComponent implements OnInit {
       });
       if (!this.isAdmin) {
         this.curentWeekOrders = this.curentWeekOrders.filter(item => {
-          return item.order_giver_id === this.currentUser.id;
+          return item.order_giver_id === Number(this.currentUser.id);
         });
       }
 
@@ -63,7 +64,7 @@ export class SummaryComponent implements OnInit {
             nonRepeatableItemList[repeatableItem].occ + 1;
         }
       });
-      debugger;
+
       this.itemArray = nonRepeatableItemList;
 
       if (this.itemArray && this.itemArray.length) {
@@ -73,9 +74,9 @@ export class SummaryComponent implements OnInit {
   }
 
   onSubmit() {
-    for (const o of this.itemArray) {
+    for (const item of this.itemArray) {
       for (const order of this.curentWeekOrders) {
-        if (o.item.id === order.item.id && o.isComplete) {
+        if (item.id === order.item.id && item.isComplete) {
           order.isComplete = true;
           this.ordersToBeUpdated.push(order);
         }
@@ -97,7 +98,7 @@ export class SummaryComponent implements OnInit {
   selectOrderToBeUpdated(orderedItemName: String) {
     for (const order of this.allOrders) {
       if (order.item.name === orderedItemName) {
-        order.isCompleted = true;
+        order.isComplete = true;
         this.ordersToBeUpdated.push(order);
       }
     }
