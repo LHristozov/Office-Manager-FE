@@ -27,7 +27,7 @@ export class AuthenticationService {
         .set('withCredentials', 'true')
     };
 
-    const user: any = { id: '1', userName: 'hristina1' };
+    const user: any = { id: 1, userName: 'hristina1' };
     //   return this.http.post<any>(`${SERVER_DOMAIN}/oauth/token`, body, options
     //         ).pipe(user => {
     //         // login successful if there's a jwt token in the response
