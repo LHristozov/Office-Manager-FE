@@ -1,4 +1,4 @@
-import { Item } from './shared/items/item';
+import { Item } from '../items/item';
 
 export class Orders {
   id: number;

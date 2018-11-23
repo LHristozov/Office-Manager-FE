@@ -34,11 +34,10 @@ export class FormPopUpComponent implements OnInit {
     });
   }
   private submitForm() {
-    debugger
     this.loading = true;
     this.requestedItem.name = this.myForm.value.title;
     this.requestedItem.description = this.myForm.value.description;
-    this.requestedItem.category = this.myForm.value.category; 
+    this.requestedItem.category = this.myForm.value.category;
     this.requestedItem.pictureUrl = this.myForm.value.pictureUrl;
     this.requestedItem.isRequested = true;
 

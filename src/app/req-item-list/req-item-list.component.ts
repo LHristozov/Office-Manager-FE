@@ -8,37 +8,35 @@ import { Item } from '../shared/items/item';
   styleUrls: ['./req-item-list.component.scss']
 })
 export class ReqItemListComponent implements OnInit {
+  reqItemList:  Item[];
 
-  reqItemList :  Item[];
-
-  constructor(private itemService: ItemService) { 
-   
+  constructor(private itemService: ItemService) {
   }
 
-  private refreshItemList(){
-    this.itemService.getAllCached().subscribe( items => {
-      this.reqItemList = items.filter( item => { return item.isRequested === true})
+  private refreshItemList() {
+    this.itemService.getItems().subscribe( items => {
+      this.reqItemList = items.filter(item => {
+         return item.isRequested === true;
+        });
     });
- 
   }
 
   ngOnInit() {
     this.refreshItemList();
   }
 
-  deleteItem(id : string) {
+  deleteItem(id: string) {
     this.itemService.deleteItem(id).then( () => {
         this.refreshItemList();
       }
-    )
+    );
   }
 
-  acceptItem(item : Item) {
+  acceptItem(item: Item) {
     item.isRequested = false;
     this.itemService.updateItem(item).then( () => {
         this.refreshItemList();
       }
-    )
+    );
   }
-
 }
