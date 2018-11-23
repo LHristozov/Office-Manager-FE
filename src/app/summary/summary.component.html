@@ -1,3 +1,80 @@
-<p>
-  summary works!
-</p>
+<form
+  #ItemsForm="ngForm"
+  name="form"
+  style="font-size: 18px;"
+  (ngSubmit)="f.form.valid && onSubmit()"
+  #f="ngForm"
+  novalidate
+>
+  <mat-list>
+    <div *ngIf="!isAdmin; else: adminView">
+      <ul class="listComponent">
+        <li
+          class="order-container listItem"
+          *ngFor="let order of curentWeekOrders"
+        >
+          <mat-card class="card-fix">
+            <div class="card-fix-container">
+              <mat-card-header class="centerHeader">
+                <mat-card-title>
+                  <p class="centerHeader">{{ order.item.name }}</p>
+                </mat-card-title>
+              </mat-card-header>
+              <img
+                mat-card-image
+                src="{{ order.item.pictureUrl }}"
+                class="image"
+              />
+              <mat-card-content>
+                {{ order.item.description }}
+              </mat-card-content>
+              <mat-card-actions>
+                <!-- this is for actions/buttons/stuff -->
+              </mat-card-actions>
+            </div>
+          </mat-card>
+
+          <mat-divider></mat-divider>
+        </li>
+      </ul>
+    </div>
+    <ng-template #adminView>
+      <ul class="listComponent">
+        <li class="listItem" *ngFor="let item of itemArray">
+          <mat-card class="card-fix">
+            <div class="card-fix-container">
+              <mat-card-header class="centerHeader">
+                <mat-card-title>
+                  <p class="centerHeader">{{ item.item.name }}</p>
+                </mat-card-title>
+              </mat-card-header>
+              <img
+                mat-card-image
+                src="{{ item.item.pictureUrl }}"
+                class="image"
+              />
+              <mat-card-content> {{ item.item.description }} </mat-card-content>
+
+              <mat-card-actions>
+                Votes: {{ item.occ }}
+                <mat-checkbox
+                  class="example-margin"
+                  [checked]="item.isComplete"
+                  (change)="item.isComplete = !item.isComplete"
+                  (click)="test(i)"
+                  name="item.isComplete"
+                ></mat-checkbox>
+
+                <!-- this is for actions/buttons/stuff -->
+              </mat-card-actions>
+            </div>
+          </mat-card>
+        </li>
+      </ul>
+    </ng-template>
+  </mat-list>
+
+  <div *ngIf="hasItems" class="button-style">
+    <button type="button" class="btn">ORDER</button>
+  </div>
+</form>
