@@ -27,6 +27,7 @@ export class AuthenticationService {
         .set('withCredentials', 'true')
     };
 
+    // login as admin: userName: 'hristina'
     const user: any = { id: 1, userName: 'hristina1' };
     //   return this.http.post<any>(`${SERVER_DOMAIN}/oauth/token`, body, options
     //         ).pipe(user => {

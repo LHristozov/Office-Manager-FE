@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../shared/items/item.service';
-import { Orders } from '../Orders';
+import { Orders } from '../shared/orders/orders';
 import { Item } from '../shared/items/item';
+import { OrdersService } from '../shared/orders/orders.service';
 
 @Component({
   selector: 'app-summary',
@@ -22,19 +23,19 @@ export class SummaryComponent implements OnInit {
   curentWeekOrders: Orders[];
   hasItems = false;
 
-  constructor(private itemService: ItemService) {}
+  constructor(private ordersService: OrdersService) {}
 
   ngOnInit() {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (this.currentUser.userName === 'hristina') {
       this.isAdmin = true;
     }
-    this.itemService.getAllOrders().then(res => {
+    this.ordersService.getAllOrders().then(res => {
       this.orders = res;
 
       this.curentWeekOrders = this.orders.filter(item => {
-        const orderDate = this.itemService.getWeekNumber(new Date());
-        const curDate = this.itemService.getWeekNumber(
+        const orderDate = this.ordersService.getWeekNumber(new Date());
+        const curDate = this.ordersService.getWeekNumber(
           new Date(item.order_date)
         );
 
@@ -104,7 +105,7 @@ export class SummaryComponent implements OnInit {
     }
   }
   updateOrders() {
-    this.itemService
+    this.ordersService
       .updateOrders(this.ordersToBeUpdated)
       .then(res => {
         alert('success');

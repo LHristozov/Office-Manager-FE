@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../shared/items/item.service';
 import { Item } from '../shared/items/item';
-import { Orders } from '../Orders';
+import { Orders } from '../shared/orders/orders';
 import { Subscription } from 'rxjs';
 import { MessageService } from '../message.service';
+import { OrdersService } from '../shared/orders/orders.service';
 
 @Component({
   selector: 'app-item-list',
@@ -21,6 +22,7 @@ export class ItemListComponent implements OnInit {
 
   constructor(
     private itemService: ItemService,
+    private ordersService: OrdersService,
     private messageService: MessageService) {
       this.subscription = this.messageService.getMessage().subscribe(
         message => {
@@ -39,7 +41,7 @@ export class ItemListComponent implements OnInit {
     this.itemService.getItems().subscribe((fetchedItems: Item[]) => {
       this.allItems = fetchedItems.filter((item) => item.isRequested === false);
       this.filteredItems =  this.allItems;
-      this.itemService.getAllOrders().then(res => {
+      this.ordersService.getAllOrders().then(res => {
         this.orders = res;
         this.disableAllLikedItems(undefined);
       });
@@ -53,7 +55,7 @@ export class ItemListComponent implements OnInit {
     this.order.item = item;
     this.order.order_giver_id = Number(this.currentUser.id);
 
-    this.itemService.placeAnOrder(this.order).then(res => {
+    this.ordersService.placeAnOrder(this.order).then(res => {
       this.disableAllLikedItems(item);
     }).catch(err => {
       console.error(err);
@@ -66,8 +68,8 @@ export class ItemListComponent implements OnInit {
     } else {
     for (const order of this.orders) {
       const date = new Date(order.order_date);
-      const orderWeek = this.itemService.getWeekNumber(date);
-      const currentWeek = this.itemService.getWeekNumber(new Date());
+      const orderWeek = this.ordersService.getWeekNumber(date);
+      const currentWeek = this.ordersService.getWeekNumber(new Date());
         for (const item of this.filteredItems) {
           if (orderWeek[1] === currentWeek[1]
             && order.order_giver_id === Number(this.currentUser.id)

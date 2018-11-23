@@ -71,6 +71,7 @@ import { RequestedComponent } from './requested/requested.component';
 import { TextEllipsisPipe } from './text-ellipsis.pipe';
 import { NgxLoadingModule } from 'ngx-loading';
 import { ToastrModule } from 'ngx-toastr';
+import { OrdersService } from './shared/orders/orders.service';
 
 /**
  * NgModule that includes all Material modules that are required to serve
@@ -165,7 +166,8 @@ export class MaterialModule {}
     AuthenticationService,
     HttpClient,
     ItemService,
-    UsersService
+    UsersService,
+    OrdersService
   ],
   bootstrap: [AppComponent],
   entryComponents: [
