@@ -13,4 +13,19 @@
 .mat-sidenav-content {
     overflow-y: hidden;
     flex: 1;
+    display: flex;
+    flex-direction: column;
 }
+
+.matIcon {
+    margin: auto auto 12px auto;
+}
+
+.mat-drawer {
+    flex-direction: column;
+    display: flex;
+   > .mat-drawer-inner-container {
+        flex-direction: column;
+        display: flex;
+    }
+    }
